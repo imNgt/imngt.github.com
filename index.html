@@ -1,0 +1,519 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>百度音乐</title>
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{font-size:12px;font-family:"微软雅黑";color:#000;}
+			img{border:none;}
+
+			/*top start*/
+			.top{width:100%;height:56px;background:#333;}
+			.top .t_header{width:95%;height:56px;margin:0 auto;}
+			.top .t_header .t_logo{margin-top:12px;float:left;}
+			.top .t_header .t_logo .baidu-logo{display: block;width:134px;height:32px;background: url(images/photo.png) no-repeat -385px -9px;}
+			.top .t_header .t_desc{float:right;line-height:56px;font-size:16px;color:#eee;}
+			/*end top*/
+
+			/*content start*/
+			.content{width:100%;margin-top:15px}
+			.content .c_box{padding:10px;}
+
+			/*c_select start*/
+			.content .c_box .c_select{width:190px;float:left;}
+			.content .c_box .c_select .c_menu{border-bottom:1px solid #ddd;}
+			.content .c_box .c_select .c_menu ul li{list-style:none;line-height:36px;color:#111;padding-left: 10px;border-radius:4px;cursor: pointer;}
+			.content .c_box .c_select .c_menu ul li:hover{background:#f0f0f0;}
+			.content .c_box .c_select .c_menu ul .c_sel{background:#f0f0f0;}
+			.content .c_box .c_select .c_add .c_mymusic{float:left;color:#111;line-height:40px;}
+			.content .c_box .c_select .c_add .c_create{width:18px;height:18px;display:block;float:right;background:url("images/icon.png") 0px -412px;margin-top: 12px;}
+			/*end c_select*/
+			
+			/*c_list start*/
+			.content .c_box .c_list{width:58%;float:left;margin-left:35px;}
+			.content .c_box .c_list .c_music .m_title{width:100%;height:36px;border-bottom:1px solid #ebebeb;}
+			.content .c_box .c_list .c_music .m_title .m_check{float:left;padding: 11px 5px 0px 10px;}
+			.content .c_box .c_list .c_music .m_title .m_info{width:57%;float:left;margin-left:70px;color:#111;}
+			.content .c_box .c_list .c_music .m_title .m_info .m_t{width:33%;float:left;padding-top:8px;}
+			.content .c_box .c_list .c_music .s_list{width:100%;height:44px;border-bottom:1px solid #ebebeb;}
+			.content .c_box .c_list .c_music .s_list:hover{background:#f5f5f5;}
+			.content .c_box .c_list .c_music .selectedList{background:#f5f5f5;font-weight: 600;}
+			.content .c_box .c_list .c_music .m_song .s_list .l_choose{float:left;padding: 15px 5px 0px 10px;}
+			.content .c_box .c_list .c_music  input{display:inline-block;width:15px;height: 15px;}
+			.content .c_box .c_list .c_music .m_song .s_list .l_number{float:left;width:36px;height:44px;text-align:center;line-height:44px;}
+			.content .c_box .c_list .c_music .m_song .s_list .l_number .n_num{width:18px;height:18px;display:inline-block;background:url("images/play.gif") no-repeat;font-size:0;margin:15px 0 0 10px;}
+
+			.content .c_box .c_list .c_music .m_song .s_list .l_info{float:left;width:57%;margin-left:32px;}
+			.content .c_box .c_list .c_music .m_song .s_list .l_info .l_t{float:left;width:33%;line-height:44px;}
+			.content .c_box .c_list .c_music .m_song .s_list .l_love{width:110px;height:44px;float:right;}
+			.content .c_box .c_list .c_music .m_song .s_list .l_love .l_icon{width:18px;height:18px;display:block;float:left;margin: 12px 18px 0 0;background:url("images/icon.png") no-repeat;}
+			.content .c_box .c_list .c_music .m_song .s_list .l_love .l_like{background-position: 0 -155px;}
+			.content .c_box .c_list .c_music .m_song .s_list .l_love .l_more{background-position:0 -473px;}
+			.content .c_box .c_list .c_music .m_song .s_list .l_love .l_del{background-position:0 -491px;}
+			/*end c_list*/
+
+			.content .c_box .c_lrc{width:250px;height:600px;float:right;}
+			.content .c_box .c_lrc .l_img{text-align:center;padding-top:15px;}
+			.content .c_box .c_lrc .l_img img{border-radius:10px;box-shadow: 1px 2px 10px -1px #000;}
+			.content .c_box .c_lrc .l_btn{width:120px;height:40px;background:#F90;display:block;text-align:center;line-height:40px;margin:10px auto;border-radius:3px;color:#fff;text-decoration:none;font-size:16px;}
+			.content .c_box .c_lrc .l_btn:hover{background:#F60;}
+			.content .c_box .c_lrc .l_con{width:250px;height:350px;overflow:auto;text-align: center;}
+			.content .c_box .c_lrc .l_con .msg{text-align:center;line-height:30px;font-size:14px;}
+			.content .c_box .c_lrc .l_con .sel{font-size:18px;color:#69F;}
+			.content .c_box .c_lrc .l_con p{font-size:14px;height:24px;line-height:24px;color:#111;}
+			.content .c_box .c_lrc .l_con .currentLrc{font-size:16px;color:#33EA1A;}
+			/*end content*/
+
+			::-webkit-scrollbar{width:5px;height:6px;background:#ccc;}
+			::-webkit-scrollbar-button{background-color:#e5e5e5;}
+			::-webkit-scrollbar-track{background:#999;}
+			::-webkit-scrollbar-track-piece{background:#ccc}
+			::-webkit-scrollbar-thumb{background:#666;}
+			::-webkit-scrollbar-corner{background:#82AFFF;}
+			::-webkit-scrollbar-resizer{background:#FF0BEE;}
+			scrollbar{-moz-appearance:none !important;background:rgb(0,255,0) !important;}
+			scrollbarbutton{-moz-appearance:none !important;background-color:rgb(0,0,255) !important;}
+			scrollbarbutton:hover{-moz-appearance:none !important;background-color:rgb(255,0,0) !important;}
+
+
+			/*player start*/
+			.player{width:100%;height:80px;background:#333;position:fixed;left:0;bottom:0;}
+			.player .p_left{width:230px;height:80px;float:left;}
+			.player .p_left .p_icon{width:30px;height:30px;display:block;background:url("images/icon.png") no-repeat;float:left;margin: 25px 0 0 25px;}
+			.player .p_left .p_pre{background-position:0 -90px;}
+			.player .p_left .p_pre:hover{background-position:-30px -90px;}
+			.player .p_left .p_play{background-position:0 0;}
+			.player .p_left .p_play:hover{background-position:-30px 0;}
+			.player .p_left .p_stop{background-position:0px -30px;display:none;}
+			.player .p_left .p_next{background-position:0px -60px;}
+			.player .p_left .p_next:hover{background-position:-30px -60px;}
+			.player .p_left .p_tool .t_t{width:20px;height:18px;display:block;background:url("images/icon.png") no-repeat;float:left;margin:30px 0 0 42px;}
+			.player .p_left .p_tool .t_list{background-position:0 -180px;}
+			.player .p_left .p_tool .t_list:hover{background-position:-30px -180px;}
+			.player .p_left .p_tool .t_single{background-position:0 -200px;display:none;}
+			.player .p_left .p_tool .t_single:hover{background-position:-30px -200px;display:none;}
+			.player .p_left .p_tool .t_random{background-position:0 -220px;display:none;}
+			.player .p_left .p_tool .t_random:hover{background-position:-30px -220px;display:none;}
+
+			.player .p_content{width:46%;height:60px;float:left;padding: 20px 0 0 50px;}
+			.player .p_content .c_name{width:100%;height:25px;}
+			.player .p_content .c_name .n_title{font-size:14px;text-decoration:none;color:#fff;float:left;}
+			.player .p_content .c_name .n_group {float:right;}
+			.player .p_content .c_name .n_group .g_g{width:18px;height:18px;display:block;float:left;background:url("images/icon.png") no-repeat;margin-left:20px;}
+			.player .p_content .c_name .n_group .g_fav{background-position:0px -240px;}
+			.player .p_content .c_name .n_group .g_fav:hover{background-position:-28px -240px;}
+			.player .p_content .c_name .n_group .q_share{background-position:0px -259px;}
+			.player .p_content .c_name .n_group .q_share:hover{background-position:-28px -259px;}
+			.player .p_content .c_name .n_group .q_more{background-position:0px -277px;}
+			.player .p_content .c_name .n_group .q_more:hover{background-position:-28px -277px;}
+
+			.player .p_content .c_time{width:100%;height:25px;}
+			.player .p_content .c_time .t_left{float:left;margin-right:10px;}
+			.player .p_content .c_time .t_center{width:85%;height:4px;background:#9b9b9b;float:left;margin: 7px 0 0 0;position:relative;}
+			.player .p_content .c_time .t_right{float:right;}
+			.player .p_content .c_time .t_center .c_played{width:0;height:4px;background:#fff;}
+			.player .p_content .c_time .t_center .c_current{width:9px;height:9px;background:#fff;border-radius:5px;position:absolute;top:-3px;left:0;cursor: pointer;}
+
+			.player .p_right{width:310px;height:80px;float:right;}
+			.player .p_right .r_qua{width:80px;height:30px;display:block;background:#E1E1E1;text-decoration:none;text-align:center;line-height:30px;color:#505050;border-radius:15px;margin: 25px 0 0 50px;float:left;}
+			.player .p_right .r_qua:hover{background:#fff;}
+			.player .p_right .r_voice{width:110px;height:18px;float:left;margin: 32px 0 0 26px;}
+			.player .p_right .r_voice .v_trumpet{width:18px;height:18px;display:block;background:url("images/icon.png") no-repeat 0px -296px;float:left;}
+			.player .p_right .r_voice .t_box{width:80px;height:18px;float:right;}
+			.player .p_right .r_voice .t_box .b_all{width:80px;height:3px;background:#9B9B9B;margin-top:8px;position:relative;}
+			.player .p_right .r_voice .t_box .b_all .a_small{width:40%;height:3px;background:#fff;}
+			.player .p_right .r_voice .t_box .b_all .a_current{width:9px;height:9px;border-radius:5px;background:#fff;position:absolute;top:-3px;left:40%;}
+
+			/*end player*/
+
+		</style>
+
+	</head>
+<body>
+	
+	<!--top start-->
+	<div class="top">
+		<div class="t_header">
+			<div class="t_logo">
+				<a href="#" class="baidu-logo"></a>
+			</div>
+			<div class="t_desc">百度音乐</div>
+		</div>
+	</div>
+	<!--end top-->
+
+	<!--content start-->
+	<div class="content">
+		<div class="c_box">
+
+			<!--c_select start-->
+			<div class="c_select">
+				<div class="c_menu">
+					<ul>
+						<li class="c_sel">正在播放</li>
+						<li>播放历史</li>
+						<li>收藏列表</li>
+					</ul>
+				</div>
+				<div class="c_add">
+					<span class="c_mymusic">我创建的精选集</span>
+					<a href="#" class="c_create"></a>
+					<div class="c_title"><img src="images/01.png" alt="创建选集提示" width="185" height="89" /></div>
+				</div>
+			</div>
+			<!--end c_select-->
+		
+			<!--c_list start-->
+			<div class="c_list">
+				<div class="c_music">
+					<div class="m_title">
+						<a href="#" class="m_check"><input type="checkbox" /></a>
+						<div class="m_info">
+							<div class="m_t">歌曲(30)</div>
+							<div class="m_t">演唱者</div>
+							<div class="m_t">专辑</div>
+						</div>
+					</div>
+					<div class="m_song">
+						<div class="s_list">
+							<p class="l_choose"><input type="checkbox"></p>
+							<p class="l_number"><span>1</span></p>
+							<div class="l_info">
+								<div class="l_t">断了乱了</div>
+								<div class="l_t">庄心妍</div>
+								<div class="l_t">--</div>
+							</div>
+							<div class="l_love">
+								<a href="#" class="l_icon l_like"></a>
+								<a href="#" class="l_icon l_more"></a>
+								<a href="#" class="l_icon l_del"></a>
+							</div>
+						</div>
+						
+						<div class="s_list">
+							<p class="l_choose"><input type="checkbox"></p>
+							<p class="l_number"><span>2</span></p>
+							<div class="l_info">
+								<div class="l_t">钟无艳</div>
+								<div class="l_t">谢安琪</div>
+								<div class="l_t">--</div>
+							</div>
+							<div class="l_love">
+								<a href="#" class="l_icon l_like"></a>
+								<a href="#" class="l_icon l_more"></a>
+								<a href="#" class="l_icon l_del"></a>
+							</div>
+						</div>
+
+						<div class="s_list">
+							<p class="l_choose"><input type="checkbox"></p>
+							<p class="l_number"><span>3</span></p>
+							<div class="l_info">
+								<div class="l_t">演员</div>
+								<div class="l_t">薛之谦</div>
+								<div class="l_t">《绅士》</div>
+							</div>
+							<div class="l_love">
+								<a href="#" class="l_icon l_like"></a>
+								<a href="#" class="l_icon l_more"></a>
+								<a href="#" class="l_icon l_del"></a>
+							</div>
+						</div>
+
+						<div class="s_list">
+							<p class="l_choose"><input type="checkbox"></p>
+							<p class="l_number"><span>4</span></p>
+							<div class="l_info">
+								<div class="l_t">最佳歌手</div>
+								<div class="l_t">许嵩</div>
+								<div class="l_t">《摄影艺术》</div>
+							</div>
+							<div class="l_love">
+								<a href="#" class="l_icon l_like"></a>
+								<a href="#" class="l_icon l_more"></a>
+								<a href="#" class="l_icon l_del"></a>
+							</div>
+						</div>
+						<div class="s_list">
+							<p class="l_choose"><input type="checkbox"></p>
+							<p class="l_number"><span>5</span></p>
+							<div class="l_info">
+								<div class="l_t">浮夸</div>
+								<div class="l_t">泳儿</div>
+								<div class="l_t">--</div>
+							</div>
+							<div class="l_love">
+								<a href="#" class="l_icon l_like"></a>
+								<a href="#" class="l_icon l_more"></a>
+								<a href="#" class="l_icon l_del"></a>
+							</div>
+						</div>
+						<div class="s_list">
+							<p class="l_choose"><input type="checkbox"></p>
+							<p class="l_number"><span>6</span></p>
+							<div class="l_info">
+								<div class="l_t">过客</div>
+								<div class="l_t">叶里</div>
+								<div class="l_t">--</div>
+							</div>
+							<div class="l_love">
+								<a href="#" class="l_icon l_like"></a>
+								<a href="#" class="l_icon l_more"></a>
+								<a href="#" class="l_icon l_del"></a>
+							</div>
+						</div>
+
+
+						
+
+					</div>
+				</div>
+			
+			</div>
+			<!--end c_list-->
+
+			<!--c_lrc start-->
+			<div class="c_lrc">
+				<div class="l_img">
+					<img src="images/mv.jpg" alt="美女" width="185" height="185" />
+				</div>
+				<a href="#" class="l_btn">亲亲我 ^_^</a>
+				<div class="l_con" id="lyrics">
+					<p calss="l_1">断了乱了</p>
+				</div>
+			</div>
+			<!--end c_lrc-->
+		</div>
+	</div>
+	<!--end content-->
+
+	<!--player start-->
+	<div class="player">
+
+		<div class="p_left">
+			<a href="#" class="p_icon p_pre"></a>
+			<a href="#" class="p_icon p_play"></a>
+			<a href="#" class="p_icon p_stop"></a>
+			<a href="#" class="p_icon p_next"></a>
+			<div class="p_tool">
+				<a href="#" class="t_t t_list" title="列表循环"></a>
+				<a href="#" class="t_t t_single" title="单曲循环"></a>
+				<a href="#" class="t_t t_random" title="随机播放"></a>
+			</div>
+		</div>
+		<div class="p_content">
+			<div class="c_name">
+				<a href="#" class="n_title">断了乱了 - 庄心妍</a>
+				<div class="n_group">
+					<a href="#" class="g_g g_fav"></a>
+					<a href="#" class="g_g q_share"></a>
+					<a href="#" class="g_g q_more"></a>
+				</div>
+			</div>
+			<div class="c_time">
+				<div class="t_left">00:00</div>
+				<div class="t_center">
+					<div class="c_played"></div>
+					<div class="c_current"></div>
+					<div class="c_futrue"></div>
+				</div>
+				<div class="t_right">05:21</div>
+			</div>
+		</div>
+
+		<div class="p_right">
+			<a href="#" class="r_qua">高品质</a>
+			<div class="r_voice">
+				<a href="#" class="v_trumpet"></a>
+				<div class="t_box">
+					<div class="b_all">
+						<div class="a_small"></div>
+						<div class="a_current"></div>
+						<div class="a_big"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--end player-->
+	<audio id="audio"></audio>
+
+	<textarea id="lrc"  style="display:none;">
+[00:01.15]断了乱了
+[00:04.48]
+[00:06.85]词曲：任立佳
+[00:09.23]演唱：庄心妍
+[00:10.54]
+[00:21.46]一朵云遮住光
+[00:23.47]瞬时冰冷的雨冷冷的打在脸上
+[00:28.53]像一场残忍的
+[00:31.23]爱情剧情一样
+[00:35.72]一个人在路上
+[00:37.52]在街旁傻傻的等着那是谁的拥抱
+[00:42.68]不必哭不必闹
+[00:45.58]我过的一样好
+[00:48.38]
+[00:49.29]爱也断了也乱了人也越来越安静了
+[00:56.37]梦也醒了也破了再也回不来了
+[01:01.35]
+[01:03.39]心已死了已碎了不想再去爱了
+[01:10.50]我们之间断了乱了
+[01:16.14]
+[01:17.31]爱也断了也乱了人也越来越安静了
+[01:24.65]梦也醒了也破了再也回不来了
+[01:31.49]心已死了已碎了不想再去爱了
+[01:38.73]我们之间断了乱了
+[01:43.75]
+[02:10.47]爱也断了也乱了人也越来越不真了
+[02:17.51]天也暗了夜深了你也回不来了
+[02:24.49]情也断了也乱了不要再相信了
+[02:31.66]是我的错我晓得
+[02:38.08]
+[02:39.18]一朵云遮住光
+[02:41.09]瞬时冰冷的雨冷冷的打在脸上
+[02:46.16]像一场残忍的
+[02:48.91]爱情剧情一样
+[02:53.36]一个人在路上
+[02:55.20]在街旁傻傻的等着那是谁的拥抱
+[03:00.35]不必哭不必闹
+[03:03.34]我过的一样好
+[03:06.40]
+[03:06.99]爱也断了也乱了人也越来越安静了
+[03:13.99]梦也醒了也破了再也回不来了
+[03:21.06]心已死了已碎了不想再去爱了
+[03:28.19]我们之间断了乱了
+[03:34.35]
+[03:35.28]爱也断了也乱了人也越来越不真了
+[03:42.22]天也暗了夜深了你也回不来了
+[03:49.28]情也断了也乱了不要再相信了
+[03:56.21]是我的错我晓得
+[04:03.45]
+[04:07.30]一朵云遮住光
+[04:09.35]瞬时冰冷的雨冷冷的打在脸上
+[04:14.49]像一场残忍的
+[04:17.10]爱情剧情一样
+[04:21.57]一个人在路上
+[04:23.42]在街旁傻傻的等着那是谁的拥抱
+[04:28.61]不必哭不必闹
+[04:31.54]我过的一样好
+[04:37.59]
+	</textarea>
+
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//处理歌词
+			var lrcHtml="";
+			var isPlay=false;
+			var audioDom=$("#audio")[0];
+			audioDom.src="mp3/1.mp3";
+			var lyrics=$("#lrc").val();
+			var lycArr=lyrics.split("[");
+			$.each(lycArr,function(i,item){
+					var tempLrc=item.split("]");
+					var lrcTime=tempLrc[0].split(":");
+					var lrcSecond=((lrcTime[0])*60+(lrcTime[1])*1).toFixed(0);
+					if (typeof tempLrc[1]!= "undefined" && lrcSecond!="NaN") { 
+   						lrcHtml+="<p class='l_"+lrcSecond+"'>"+tempLrc[1]+"</p>";
+					}			 
+			});
+			$("#lyrics").html(lrcHtml);
+			//播放监听
+			audioDom.addEventListener("timeupdate",function(){
+				//歌词滚动
+				var timeClass="l_"+this.currentTime.toFixed(0);
+				$("."+timeClass).addClass("currentLrc").siblings().removeClass("currentLrc");				
+				$(".l_con").animate({"scrollTop":($(".currentLrc").index()-5)*24},200);
+				// $(".l_con").scrollTop(($(".currentLrc").index()-5)*24,300);
+				//进度条自动变化
+				var percent=this.currentTime/this.duration;
+				$(".t_left").html(timeFormat(this.currentTime));
+				$(".c_played").width(percent*$(".t_center").width()+"px");
+				$(".c_current").css("left",percent*$(".t_center").width()+"px");
+			});
+
+			//音乐列表处理
+			var $songList=$(".s_list");
+			var songSrc=[];
+			for(var i=0;i<$songList.length;i++){
+				songSrc[i]="mp3/"+(i+1)+".mp3";
+			}
+			var songIndex=0;
+			
+			$songList.on("click",function(){
+				songIndex=$(this).index();
+					playMusic(songIndex);
+			});
+			//按钮播放
+			$(".p_play").on("click",function(){
+				playMusic(songIndex);
+			});
+			//暂停播放
+			$(".p_stop").on("click",function(){
+				stopMusic();
+			});
+			$(".p_next").on("click",function(){
+				songIndex++;
+				if(songIndex>=$songList.length){
+					songIndex=0;
+				}
+				playMusic(songIndex);
+			});
+			$(".p_pre").on("click",function(){
+				songIndex--;
+				if(songIndex<0){
+					songIndex=$songList.length-1;
+				}
+				playMusic(songIndex);
+			});
+			//播放进度条控制播放进度
+			$(".t_center").on("mousedown",function(ev){
+				var evt=ev||event;
+				var x=evt.clientX||evt.pageX;
+				var proX=x-$(".t_center").offset().left;
+				var ipercent=(proX/$(this).width());
+				$(".c_played").width(ipercent*$(this).width()+"px");
+				$(".c_current").css("left",ipercent*$(this).width()+"px");
+				audioDom.currentTime  = audioDom.duration *ipercent;
+				
+			});
+
+			function timeFormat(time){
+				var mins=Math.floor(time/60);
+				var secs=Math.floor(time%60);
+				return (mins<10?"0"+mins:mins)+":"+(secs<10?"0"+secs:secs);
+
+			}
+
+			//播放音乐函数
+			var playMusic=function(index){
+				audioDom.src=songSrc[index];
+				audioDom.play();
+				isPlay=true;
+				$(".p_play").hide();
+				$(".p_stop").show();
+				//加上正在播放的class
+				$(".s_list").eq(index).addClass("selectedList").find(".l_number>span").addClass("n_num").parents(".s_list").siblings().removeClass("selectedList").find(".l_number>span").removeClass("n_num");
+				$("player p_left p-play").removeClass("p-play");
+				audioDom.oncanplaythrough=function(){
+					$(".t_right").html(timeFormat(audioDom.duration));
+
+				}				
+			}
+			var stopMusic=function(){
+				audioDom.pause();
+				$(".p_stop").hide();
+				$(".p_play").show();
+				isPlay=false;
+
+			}
+
+		});
+	</script>
+</body>
+</html>
