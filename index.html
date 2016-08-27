@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ImNgt</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>猫头鹰</title>
+	<!--[if lt IE 9]>
+	  	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		.load{width:100%;height:100%;padding-top:1px;position:absolute:top:0;left:0;}
+		.load .owl{position:relative;width:210px;height:108px;margin:200px auto;background: url('images/owl.png') no-repeat;}
+		.load .owl>p{position:absolute;top:-40px;text-align: center;font-family: "Microsoft Yahei";}
+		.load .owl .hand{width: 34px;height:25px;background: #472d20; border-radius:100%; position: absolute;bottom:-3px;-webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
+		.load .owl .hand-left{left:15px;}
+		.load .owl .hand-right{right:10px;}
+		.load .owl .arms{position: absolute; ;width: 100%; bottom:9px; height: 41px; overflow: hidden;} 
+		.load .owl .arms>div{width: 40px; height: 65px; position: absolute; background: url('images/hand.png');transform:translateY(40px); -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out;} 
+		.load .owl .arms .arms-left{left:15px;}
+		.load .owl .arms .arms-right{right:10px;-web-transform: rotateY(180deg) translateY(40px);-moz-transform: rotateY(180deg)translateY(40px);transform: rotateY(180deg) translateY(40px);}
+		.load .string{width:210px;height:10px;margin:-219px auto;border-bottom: 3px solid #000;}
+		.load .owl-hover>.hand-left{-webkit-transform: translate3d(51px,-18px,0); -ms-transform: translate3d(51px,-18px,0); -o-transform: translate3d(51px,-18px,0); transform: translate3d(51px,-18px,0);} 
+		.load .owl-hover>.hand-right{-webkit-transform: translate3d(-47px,-19px,0); -ms-transform: translate3d(-47px,-19px,0); -o-transform: translate3d(-47px,-19px,0); transform: translate3d(-47px,-19px,0);} 
+		.load .owl-hover>.arms>.arms-left{-webkit-transform: translate3d(50px,0px,0); -ms-transform: translate3d(50px,0px,0); -o-transform: translate3d(50px,0px,0); transform: translate3d(50px,0px,0);} 
+		.load .owl-hover>.arms>.arms-right{-webkit-transform:rotateY(180deg) translate3d(47px,0px,0); -ms-transform:rotateY(180deg) translate3d(47px,0px,0); -o-transform:rotateY(180deg) translate3d(47px,0px,0); transform:rotateY(180deg) translate3d(47px,0px,0);} 
+	</style>
 </head>
 <body>
-     <h3>I'm Ngt.</h3>
+	<div class="load" id="load">
+		<div class="owl" id="owl">
+			<P>不要点我，还好害羞~</P>
+			<div class="hand hand-left"></div>
+			<div class="hand hand-right"></div>
+			<div class="arms">
+				<div class="arms-left"></div>
+				<div class="arms-right"></div>
+			</div>
+
+		</div>
+		<div class="string"></div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$("#owl").click(function(){
+				$(this).toggleClass("owl-hover");
+			});
+		});
+ 
+	</script>
+
+	
 </body>
 </html>
