@@ -39,16 +39,51 @@
 
 		</div>
 		<div class="string"></div>
-		<h3><a href="catalog/catalog.html">catalog</a></h3>
 	</div>
+	<h3><a href="catalog/catalog.html">catalog</a></h3>
+	<div class="autotype" id="autotype">
+	<p>你的瞳 是褐色的迷梦</p>
+	<p>睫毛像翅膀逆光扑动</p>
+	<br/>
+	<p>泪光却 是落花的溪流</p>
+	<p>杏花春雨 温山软水的愁</p>
+	<br/>
+	<p>眼珠 是诅咒 褪去的水晶球</p>
+	<p>藏着前世三生的疼痛</p>
+</div>
 	<script type="text/javascript">
 		$(function(){
 			$("#owl").click(function(){
 				$(this).toggleClass("owl-hover");
 			});
 		});
- 
-	</script>
+ 		$.fn.extend({
+			autotype:function(){
+				var $_self = $(this);
+				var str = $_self.html();
+				var index = 0;
+				var x = $_self.html('');
+				var timer = setInterval(function(){
+					//substr(index, 1) 方法在字符串中抽取从index下标开始的一个的字符
+					var current = str.substr(index, 1);
+					if(current == '<'){
+					//indexOf() 方法返回">"在字符串中首次出现的位置，stringObject.indexOf(searchvalue,fromindex)
+						index = str.indexOf('>', index) + 1;
+					}else{
+						index ++ ;
+					}
+					//console.log([current,index,index & 1 ? '_': '']);位运算，&1取基数
+					//substring() 方法用于提取字符串中介于两个指定下标之间的字符
+					$_self.html(str.substring(0, index) + (index & 1 ? '_': ''));
+					if(index >= str.length){
+						clearInterval(timer);
+					}
+				},200);
+			}
+		});
+		
+		$("#autotype").autotype();
+		</script>
 
 	
 </body>
