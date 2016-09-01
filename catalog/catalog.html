@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>catalog</title>
+	<style type="text/css">
+		h1{margin:0;padding:0;}
+		body{height: 2000px; font-family: "Microsoft Yahei";height: 3000px;}
+		.catalog{width: 270px; min-height:500px; position: fixed; top:50px; right:50px; } 
+		.catalog a{text-decoration: none; color:#000; } 
+		.catalog .side-bar{position: absolute; top:10px; width: 0; left:10px; height: 380px; border: 1px solid #D7D5D5; border-top: 0; border-bottom: 0; } 
+		.catalog .side-bar .circle{width:6px; height:6px; display:inline-block; border:2px solid #D7D5D5; border-radius:6px; position: absolute; left:-5px; background: #fff; } 
+		.catalog .side-bar .circle.start{top:-5px; } 
+		.catalog .side-bar .circle.end{bottom:-5px; } 
+		.catalog .catalog-list{padding: 0 30px; position: relative; top:10px; } 
+		.catalog .catalog-list .arrow{position: absolute; display: inline-block; width: 10px; height: 10px; cursor: pointer; margin-top: 4px; left:6px; top:0px; background: #1BD845; z-index: 4; -webkit-transition: .6s; -o-transition: .6s; transition: .6s; } 
+		.catalog .catalog-list .arrow::after{content: ""; display:inline-block; position: absolute; width:0; height: 0; left:10px; top:0; border-width:5px; border-style:  dashed dashed dashed solid; border-color:transparent transparent transparent #1BD845; } 
+		.catalog .catalog-list .catalog-title .pointer{position: absolute; display: inline-block; width: 6px; height: 6px; border-radius: 6px; border:2px solid #fff; cursor: pointer; margin-top: 4px; left:6px; background: #D7D5D5; z-index: 3; } 
+		.catalog .catalog-list dd{font-size:13px; } 
+		.content{min-height:400px; padding:50px; }
+		 </style>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+	<div class="catalog">
+		<div class="side-bar">
+			<span class="circle start"></span>
+			<span class="circle end"></span>
+		</div>
+		<dl class="catalog-list">
+			<span class="arrow"></span>
+			<dt class="catalog-pointer catalog-title">
+				<span class="pointer"></span>
+				<a href="#1" class="title-link">
+					<span class="text">
+						<span class="title-index">1</span>
+						<span class="title-link" >AngularJS 简介</span>
+					</span>
+				</a>
+			</dt>
+			<dd>
+				<p class="catalog-pointer">1.1 AngularJS 是一个 JavaScript 框架</p>
+				<p class="catalog-pointer">1.2 AngularJS 指令</p>
+			</dd>
+			<dt class="catalog-pointer catalog-title">
+				
+				<span class="pointer"></span>
+				<a href="#1" class="title-link">
+					<span class="text">
+						<span class="title-index">2</span>
+						<span class="title-link" >AngularJS 指令</span>
+					</span>
+				</a>
+			</dt>
+			<dd>
+				<p class="catalog-pointer">2.1 ng-model 指令</p>
+				<p class="catalog-pointer">2.2 双向绑定</p>
+				<p class="catalog-pointer">2.3 CSS 类</p>
+			</dd>
+			<dt class="catalog-pointer catalog-title">
+				<span class="pointer"></span>
+				<a href="#1" class="title-link">
+					<span class="text">
+						<span class="title-index">3</span>
+						<span class="title-link" >AngularJS 控制器</span>
+					</span>
+				</a>
+			</dt>
+			<dd>
+				<p class="catalog-pointer">3.1 AngularJS 控制器</p>
+				<p class="catalog-pointer">3.2 控制器方法</p>
+			</dd>
+		</dl>
+	</div>
+	<div class="content content-target">
+		<h1>AngularJS简介</h1>	
+		<div  class="content-target">
+			<p>1.1</p>
+			<p>ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定。</p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+		</div>
+		
+		<div  class="content-target">
+			<p>1.2</p>
+			<p>ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定。</p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+		</div>
+	</div>
+	<div class="content content-target">
+		<h1>AngularJS指令</h1>
+		<div  class="content-target">
+			<p>2.1</p>
+			<p>ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定。</p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+		</div>
+		<div  class="content-target">
+			<p>2.2</p>
+			<p>ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定。</p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+		</div>
+		<div  class="content-target">
+			<p>2.3</p>
+			<p>ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定。</p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+		</div>
+	</div>
+	<div class="content content-target">
+		<h1> AngularJS控制器</h1>
+		<div  class="content-target">
+			<p>3.1</p>
+			<p>ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定。</p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+		</div>
+		<div  class="content-target">
+			<p>3.2</p>
+			<p>ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定。</p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+			<p><br></p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$.fn.extend({
+				catalog:function(){
+					var targetTop=[];
+					var titleTop=[];
+					var i=0;
+					var $arrow=$(".catalog-list .arrow");
+					$(".content-target").each(function(i){
+						targetTop.push(this.offsetTop);
+					});
+					console.log(targetTop);
+					$(".catalog-pointer").each(function(i){
+						titleTop.push(this.offsetTop);
+					});
+					console.log(titleTop);
+					$(window).scroll(function(){
+						// $("title").html($(window).scrollTop());
+						for(i=0;i<targetTop.length;i++){
+							if($(window).scrollTop()+$(".content-target").eq(i).innerHeight()/2>targetTop[i]){
+								$arrow.css({"top":titleTop[i]});
+								// $(".catalog-title").eq(i).css({"font-weight":600}).siblings().css({"font-weight":500});
+							}
+							if($(window).scrollTop()==0){
+								$arrow.css({"top":titleTop[0]});
+							}
+						}
+					});
+				}
+			});
+			$(".catalog").catalog();
+
+
+		});
+	</script>
+</body>
+</html>
+
+
