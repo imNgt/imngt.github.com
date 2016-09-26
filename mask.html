@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mask</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.mask{
+			position:absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			z-index:100;
+			background:rgba(180,60,0,.4);
+			display: none;
+		}
+		.mask .dialog{
+			margin:200px auto;
+			width:350px;
+			height:150px;
+			border:1px solid #ccc;
+			background: #fff;	
+			box-shadow: 0 0 5px #F97C0F;
+			padding:20px;
+			text-align: center;
+			background:#F97C0F;
+			font-size: 25px;
+		}
+		.mask .dialog div input{
+			outline: 0;
+			background: #FBBA81;
+			height: 50px;
+			line-height: 50px;
+			font-size: 25px;
+			border:none;
+			border-bottom: 1px solid #333;
+			text-align: center;
+		}
+		a{color:#000;font-size: 18px;}
+	</style>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<div class="mask">
+		<div class="dialog">
+			<p>&#x2639;</p>
+			<p><br></p>
+			<div contenteditable="true">
+				<input type="text" name="" value="What do you want?">
+			</div>
+		</div>
+	</div>
+	<p><a href="#" id="open">Open Dialog</a></p>
+	<script type="text/javascript">
+	$(function(){
+		$("#open").click(function(e){
+			$(".mask").show();
+		});
+		$(".dialog").click(function(e){
+
+			if(e){//ff
+				e.stopPropagation();
+				console.log("e");
+			}
+			else{//ie
+				window.event.cancelBubble = true;
+			}
+		});
+		$(".mask").click(function(e){
+			// if(e.target==this){
+			// 	$(".mask").hide();
+			// }
+			$(".mask").hide();
+
+		});
+	});
+	</script>
+</body>
+</html>
